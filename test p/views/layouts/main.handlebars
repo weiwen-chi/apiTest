@@ -1,0 +1,44 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Actor"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>CryptoHack</title>
+  </head>
+
+  <div>
+    <header class="display-flex justify-space-between align-center p-2">
+      <h2 class="title">
+        <span class="title-word title-word-1">KryptoHack</span>
+      </h2>
+      {{#if logged_in}}
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Contact</a></li>
+          <button class="btn" id="logout">logout</button>
+        </ul>
+      {{/if}}
+    </header>
+
+    <main class="container container-fluid mt-5">
+      {{{body}}}
+    </main>
+    <footer>
+
+    </footer>
+
+    {{!-- {{#if logged_in}}
+      <script src="/js/script.js"></script>
+    {{/if}} --}}
+  </div>
+
+</html>

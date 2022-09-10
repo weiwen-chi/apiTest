@@ -1,0 +1,65 @@
+[
+  {
+    "name": "BTC",
+    "price": 19313.59,
+    "day_volume": 30027656153,
+    "marketcap": 369704072644,
+    "isFavourite": "false"
+  },
+  {
+    "name": "ETH",
+    "price": 1636.27,
+    "day_volume": 17694007569,
+    "marketcap": 197179903249,
+    "isFavourite": "false"
+  },
+  {
+    "name": "USDT",
+    "price": 1.0,
+    "day_volume": 42502394234,
+    "marketcap": 67584609137,
+    "isFavourite": "false"
+  },
+  {
+    "name": "USDC",
+    "price": 1,
+    "day_volume": 5769723283,
+    "marketcap": 51704044019,
+    "isFavourite": "false"
+  },
+  {
+    "name": "BNB",
+    "price": 279.18,
+    "day_volume": 313626282,
+    "marketcap": 45583599621,
+    "isFavourite": "false"
+  },
+  {
+    "name": "BUSD",
+    "price": 1,
+    "day_volume": 10111254638,
+    "marketcap": 19754207242,
+    "isFavourite": "false"
+  },
+  {
+    "name": "XRP",
+    "price": 0.333127,
+    "day_volume": 987942797,
+    "marketcap": 16545901064,
+    "isFavourite": "false"
+  },
+  {
+    "name": "ADA",
+    "price": 0.472245,
+    "day_volume": 981942797,
+    "marketcap": 15980264820,
+    "isFavourite": "false"
+  },
+  {
+    "name": "SOL",
+    "price": 32.89,
+    "day_volume": 877275515,
+    "marketcap": 11621637437,
+    "isFavourite": "false"
+  }
+]
