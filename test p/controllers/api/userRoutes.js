@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const { Crypto } = require("../../models");
 const https = require("https");
-// import fetch from "node-fetch";
 
 router.post("/login", async (req, res) => {
   try {
@@ -24,15 +23,15 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // try {
-    //   const api_url =
-    //     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=e3efea13-b74b-49bc-9eec-95f5d0473a69";
+    try {
+      const api_url =
+        "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=e3efea13-b74b-49bc-9eec-95f5d0473a69";
 
-    //   await getapi(api_url);
-    //   console.log(`finished`);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+      await getapi(api_url);
+      console.log(`finished`);
+    } catch (err) {
+      console.log(err);
+    }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -55,43 +54,44 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// async function getapi(url) {
-//   https.get(url, (resp) => {
-//     let data = "";
+async function getapi(url) {
+  https.get(url, (resp) => {
+    let data = "";
 
-//     // A chunk of data has been received.
-//     resp.on("data", (chunk) => {
-//       data += chunk;
-//     });
+    // A chunk of data has been received.
+    resp.on("data", (chunk) => {
+      data += chunk;
+    });
 
-//     // The whole response has been received. Print out the result.
-//     resp.on("end", async () => {
-//       try {
-//         var coin = JSON.parse(data);
-//         console.log("========================");
-//         console.log(coin);
-//         console.log("========================");
+    // The whole response has been received. Print out the result.
+    resp.on("end", async () => {
+      try {
+        var coin = JSON.parse(data);
+        console.log("========================");
+        console.log(coin);
+        console.log("========================");
 
-//         for (let r of coin.data) {
-//           const name = r.name;
-//           const price = r.quote.USD.price;
-//           const marketcap = r.quote.USD.market_cap;
-//           const day_volume = r.quote.USD.volume_24h;
+        for (let r of coin.data) {
+          const name = r.name;
+          const price = r.quote.USD.price;
+          const marketcap = r.quote.USD.market_cap;
+          const day_volume = r.quote.USD.volume_24h;
 
-//           const temmp = JSON.stringify({ name, price, marketcap, day_volume });
+          const temmp = { name:name, price:price, marketcap:marketcap, day_volume:day_volume };
 
-//           console.log("========================");
-//           console.log(temmp);
-//           console.log("========================");
+          console.log("========================");
+          console.log(temmp);
+          console.log("========================");
 
-//           const newCoin = await Crypto.create(temmp);
-//         }
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     });
-//   });
-// }
+          const newCoin = await Crypto.create(temmp);
+          newCoin.save();
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  });
+}
 
 // async function getapi(url) {
 //   const response = await fetch(url);
