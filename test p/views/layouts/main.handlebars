@@ -9,23 +9,26 @@
       rel="stylesheet"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {{! <link rel="stylesheet" href="/css/jass.css" /> }}
     <link rel="stylesheet" href="/css/style.css" />
     <title>CryptoHack</title>
   </head>
 
-  <div>
+  <body>
     <header class="display-flex justify-space-between align-center p-2">
       <h2 class="title">
         <span class="title-word title-word-1">KryptoHack</span>
       </h2>
       {{#if logged_in}}
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">Contact</a></li>
-          <button class="btn" id="logout">logout</button>
-        </ul>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Favourite</a></li>
+            <li><a href="#">Contact</a></li>
+            <button class="btn" id="logout">logout</button>
+          </ul>
+        </nav>
       {{/if}}
     </header>
 
@@ -36,9 +39,10 @@
 
     </footer>
 
-    {{!-- {{#if logged_in}}
-      <script src="/js/script.js"></script>
-    {{/if}} --}}
-  </div>
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+      {{! <script src="/js/script.js"></script> }}
+    {{/if}}
+  </body>
 
 </html>
